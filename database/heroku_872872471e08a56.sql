@@ -2,9 +2,9 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Oca 2022, 18:13:38
--- Sunucu sürümü: 10.4.21-MariaDB
+-- Anamakine: eu-cdbr-west-02.cleardb.net
+-- Üretim Zamanı: 21 Oca 2022, 18:00:22
+-- Sunucu sürümü: 5.6.50-log
 -- PHP Sürümü: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `tour_db`
+-- Veritabanı: `heroku_872872471e08a56`
 --
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `bookings` (
 --
 
 CREATE TABLE `customers` (
-  `id` int(255) NOT NULL,
+  `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -85,7 +85,7 @@ INSERT INTO `customers` (`id`, `name`, `email`, `password`, `image`) VALUES
 --
 
 CREATE TABLE `holiday` (
-  `id` int(255) NOT NULL,
+  `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -103,52 +103,32 @@ INSERT INTO `holiday` (`id`, `name`, `amount`) VALUES
 --
 
 --
--- Tablo için indeksler `admin`
---
-ALTER TABLE `admin`
-  ADD UNIQUE KEY `aid` (`aid`);
-
---
--- Tablo için indeksler `bookings`
---
-ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Tablo için indeksler `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Tablo için indeksler `holiday`
 --
 ALTER TABLE `holiday`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `bookings`
---
-ALTER TABLE `bookings`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
 -- Tablo için AUTO_INCREMENT değeri `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `holiday`
 --
 ALTER TABLE `holiday`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
